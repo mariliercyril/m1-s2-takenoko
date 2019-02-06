@@ -1,0 +1,290 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 290632,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.initalisation()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "Testing login with valid credentials",
+        "description": "",
+        "id": "user-login;testing-login-with-valid-credentials;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 132501,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.fin()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 256674423,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I open login page",
+            "match": {
+              "location": "stepDefinition.i_open_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2593079,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I enter username as \"oualid\" and password as \"benazzouz\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "oualid",
+                  "offset": 21
+                },
+                {
+                  "val": "benazzouz",
+                  "offset": 46
+                }
+              ],
+              "location": "stepDefinition.i_enter_username_as_and_password_as(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 122039,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I submit login page",
+            "match": {
+              "location": "stepDefinition.i_submit_login_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 127040,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I redirect to user home page",
+            "match": {
+              "location": "stepDefinition.i_redirect_to_user_home_page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 134150,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.initalisation()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Testing login with valid credentials",
+        "description": "",
+        "id": "user-login;testing-login-with-valid-credentials;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 119194,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.fin()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 212890,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I open login page",
+            "match": {
+              "location": "stepDefinition.i_open_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 240371,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I enter username as \"admin\" and password as \"admin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "admin",
+                  "offset": 21
+                },
+                {
+                  "val": "admin",
+                  "offset": 45
+                }
+              ],
+              "location": "stepDefinition.i_enter_username_as_and_password_as(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 83439,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I submit login page",
+            "match": {
+              "location": "stepDefinition.i_submit_login_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 122914,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I redirect to user home page",
+            "match": {
+              "location": "stepDefinition.i_redirect_to_user_home_page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 180543,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.initalisation()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Testing login with invalid credentials",
+        "description": "",
+        "id": "user-login;testing-login-with-invalid-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 68808,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.fin()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 136137,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I open login page",
+            "match": {
+              "location": "stepDefinition.i_open_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 197742,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I enter username as \"invalid\" and password as \"invalid\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "invalid",
+                  "offset": 21
+                },
+                {
+                  "val": "invalid",
+                  "offset": 47
+                }
+              ],
+              "location": "stepDefinition.i_enter_username_as_and_password_as(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 101040,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I submit login page",
+            "match": {
+              "location": "stepDefinition.i_submit_login_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 110725,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I am on login page",
+            "match": {
+              "location": "stepDefinition.i_am_on_login_page()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "User Login",
+    "description": "User should be able to login using valid credentials",
+    "id": "user-login",
+    "keyword": "Feature",
+    "uri": "Login/LoginTest.feature"
+  }
+]
