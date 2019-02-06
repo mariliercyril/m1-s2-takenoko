@@ -1,10 +1,10 @@
-INTRODUCTION
+# INTRODUCTION
 
 Travis CI permet de faire de l'intégration continue.
 
 
 
-1 - L'Intégration continue
+# 1 - L'Intégration continue
 
 L'intégration continue est une pratique qui consiste à faire de l'intégration fréquente de code ; l'objectif de
 cette pratique est de détecter tout de suite les erreurs.
@@ -15,7 +15,7 @@ par exemple, fusionnera le code poussé.
 
 
 
-2 - Travis CI
+# 2 - Travis CI
 
 Travis fonctionne à partir d'un fichier de configuration ("YAML" ou "YML"), nommé ".travis", à l'intérieur duquel
 on indique notamment le langage du logiciel, les instructions de compilation (à l'aide de Maven, par exemple, en
@@ -28,7 +28,7 @@ faire un certain "monitoring" des compilations.
 
 
 
-CONCLUSION
+# CONCLUSION
 
 Travis peut également être chargé du déploiement (au cas, évidemment, où le "build" réussit)...
 Nous pouvons voir concrètement ce que contient le fichier ".travis" avec l'exemple de fichier de configuration pour
@@ -36,7 +36,7 @@ Travis créé par ailleurs.
 
 
 
-RÉFÉRENCES
+# RÉFÉRENCES
 
 Notamment, les pages du site officiel de Travis CI qui suivent :
 
