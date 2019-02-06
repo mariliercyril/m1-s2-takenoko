@@ -1,0 +1,10 @@
+language: java
+script: mvn clean package -DskipTests
+notifications:
+  email:
+    recipients:
+      - chihabeddine.aourinmouche@etu.univ-cotedazur.fr
+      - oualid.benazzouz@etu.univ-cotedazur.fr
+      - cyril.marilier@etu.univ-cotedazur.fr
+    on_success: change # default: change
+    on_failure: always # default: always
