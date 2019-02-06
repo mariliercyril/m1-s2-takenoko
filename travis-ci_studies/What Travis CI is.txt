@@ -22,7 +22,7 @@ on indique notamment le langage du logiciel, les instructions de compilation (à
 donnant la ligne de commande qui convient) et, peut-être, une demande de notifications (par "email", par exemple)
 à chaque fois que la compilation échoue, par exemple.
 
-Mais Travis se présente globalement comme une plate-forme, à partir delaquelle, notamment, nous pouvons paramétrer
+Mais Travis se présente globalement comme une plate-forme, à partir de laquelle, notamment, nous pouvons paramétrer
 les fréquences des "build" (par rapport aux "push", d'une part, et par rapport aux "pull request", d'autre part) et
 faire un certain "monitoring" des compilations.
 
@@ -53,5 +53,5 @@ on trouve aussi, sur cette page, les notions fondamentales, de "phase", "job", "
 - https://docs.travis-ci.com/user/notifications/
 (cette page précise plusieurs moyens d'envoi de notifications par Travis)
 
-Nous pouvons aussi nous référer à la page suivante (qui indique très clairement ce qui doit être fait pour utiliser
-Travis CI) : http://www.vogella.com/tutorials/TravisCi/article.html#travis-yml-configuration
+Nous pouvons aussi nous référer à la page suivante (qui indique très clairement comment utiliser Travis CI) :
+http://www.vogella.com/tutorials/TravisCi/article.html#travis-yml-configuration
