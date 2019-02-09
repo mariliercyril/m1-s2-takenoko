@@ -16,6 +16,14 @@ Travis fonctionne à partir d'un fichier de configuration ("YML", qui est une r�
 
 Travis se présente globalement comme une plate-forme, à partir de laquelle, notamment, nous pouvons paramétrer les fréquences des "build" (sur les "push", d'une part, et les "pull request", d'autre part) et faire un certain "monitoring" des compilations.
 
+**Travis procède comme suit** :
+1. Il clone le code. (Ainsi, il "travaillera" sur des copies du code...)
+2. Il fait une première compilation (définie par défaut: sans test ni génération de la Javadoc).
+3. Il exécute le script...
+4. Il retourne un résultat ; par exemple :
+		"the command <command_script> exited with 0" si le "build" a réussi,
+		"the command <command_script> failed and exited with <during_value> during" s'il a échoué finalement. (Travis CI relance la commande un _certain_ nombre de fois en cas d'échec.)
+
 ## CONCLUSION
 
 Travis peut également être chargé du déploiement (au cas, évidemment, où le "build" réussit)...
