@@ -18,8 +18,8 @@ Travis se présente globalement comme une plate-forme, à partir de laquelle, no
 
 **Travis procède comme suit** :
 1. Il clone le code. (Ainsi, il "travaillera" sur des copies du code...)
-2. Il fait une première compilation (définie par défaut: sans test ni génération de la Javadoc).
-3. Il exécute le script...
+2. Il fait une première compilation (définie par défaut: sans test ni génération de la Javadoc)...
+3. Il exécute le script contenant les instructions d'intégration, pour une seconde compilation par exemple (avec les tests unitaires, cette fois).
 4. Il retourne un résultat ; par exemple :
 		"the command <command_script> exited with 0" si le "build" a réussi,
 		"the command <command_script> failed and exited with <during_value> during" s'il a échoué finalement. (Travis CI relance la commande un _certain_ nombre de fois en cas d'échec.)
@@ -27,7 +27,7 @@ Travis se présente globalement comme une plate-forme, à partir de laquelle, no
 ## CONCLUSION
 
 Travis peut également être chargé du déploiement (au cas, évidemment, où le "build" réussit)...
-Nous pouvons voir concrètement ce que peut contenir le fichier ".travis" avec l'exemple de fichier de configuration pour Travis créé par ailleurs.
+Nous pouvons voir concrètement ce que peut contenir le fichier ".travis" avec [l'exemple de fichier de configuration pour Travis créé par ailleurs](https://github.com/uca-m1informatique-softeng/projet-s2-19-2co/blob/preparatory-work/travis-ci_studies/travis-configuration-file-example/.travis.yml).
 
 ## RÉFÉRENCES
 
