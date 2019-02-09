@@ -1,4 +1,4 @@
-# What Travis CI is
+# Qu'est-ce que Travis CI ?
 
 ## INTRODUCTION
 
