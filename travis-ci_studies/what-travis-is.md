@@ -6,9 +6,9 @@ Travis CI permet de faire de l'intégration continue.
 
 ## 1 - L'Intégration continue
 
-L'intégration continue est une pratique qui consiste à faire de l'intégration de code qui soit la plus fréquente possible ; l'objectif de cette pratique est d'avoir le meilleur contrôle possible sur la régression et permettre un développement plus sain.
+L'intégration continue est une pratique qui consiste à faire de l'intégration de code qui soit la plus fréquente possible ; l'objectif de cette pratique est d'avoir le meilleur contrôle possible sur les risques de régression et, par là, permettre un développement plus sain.
 
-Pour faire de l'intégration continue, on automatise donc la compilation (avec les tests unitaires, entre autres, préférentiellement), grâce à un outil tel que Travis, qui, à chaque fois qu'un développeur effectue un "push", par exemple, lance une compilation.
+Pour faire de l'intégration continue, on automatise donc la compilation (avec les tests (unitaires, entre autres, etc.), préférentiellement), grâce à un outil tel que Travis, qui, à chaque fois qu'un développeur effectue un "push", par exemple, lance une compilation.
 
 ## 2 - Travis CI
 
@@ -20,7 +20,7 @@ Travis se présente globalement comme une plate-forme, à partir de laquelle, no
 1. Il clone le code. (Ainsi, il "travaillera" sur des copies du code...)
 2. Il fait une première compilation (définie par défaut: sans test ni génération de la Javadoc)...
 3. Il exécute le script contenant les instructions d'intégration, pour une seconde compilation par exemple (avec les tests unitaires, cette fois).
-4. Il retourne un résultat ; par exemple :
+4. Il retourne un résultat :
 		"the command <command_script> exited with 0" si le "build" a réussi,
 		"the command <command_script> failed and exited with <during_value> during" s'il a échoué finalement. (Travis CI relance la commande un _certain_ nombre de fois en cas d'échec.)
 
