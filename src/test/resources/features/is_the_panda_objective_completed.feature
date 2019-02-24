@@ -1,5 +1,5 @@
 Feature: Is the panda objective completed?
-  I am a player and I would like to check if a panda objective is completed.
+  I am a player and I would like to know whether a panda objective is completed.
 
   Scenario Outline: Checking if the objective "having eaten two GREEN bamboo chunks" is completed
     Given I am a player
