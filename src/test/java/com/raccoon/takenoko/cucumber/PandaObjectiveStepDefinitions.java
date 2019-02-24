@@ -1,5 +1,7 @@
 package com.raccoon.takenoko.cucumber;
 
+import static org.junit.Assert.assertEquals;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -16,17 +18,28 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class StepDefinitions {
+/**
+ * The {@code PandaObjectiveStepDefinitions} class defines the Gherkin steps (in the scenarios
+ * of the Cucumber <i>feature</i> "Is the panda objective completed?") as Java methods.
+ * 
+ * @author obenazzouz
+ * @author cmarilier
+ */
+public class PandaObjectiveStepDefinitions {
 
+    // A player (which should be mocked)
 	private static Player mockPlayer;
 
+	// Creates a stomach (for the player)...
 	private Map<Color, Integer> stomach = new HashMap<>();
 
+	// The panda objective to test...
 	private PandaObjective pandaObjective;
 
 	@Given("^I am a player$")
 	public void i_am_a_player() {
 
+	    // Creates the mock player
 		mockPlayer = mock(Player.class);
 
 	}
@@ -49,19 +62,21 @@ public class StepDefinitions {
 		stomach.put(Color.PINK, number) ;
 	}
 
-	@When("^I check if the \"([^\"]*)\" is completed$")
-	public void i_check_if_the_objective_in_question_is_completed(String objectiveName) {
+	@When("I ask whether the {string} objective is completed")
+	public void i_ask_whether_the_objective_is_completed(String objectiveName) {
 
+		// The panda objective depends on the scenario:
 		pandaObjective = new PandaObjective(Enum.valueOf(PandaObjective.Motif.class, objectiveName));
 
+        // So that the mock player returns the stomach (of the panda)
 		when(mockPlayer.getStomach()).thenReturn(stomach);
 		pandaObjective.checkIfCompleted(mockPlayer);
 	}
 
-	@Then("^the response should be \"([^\"]*)\"$")
+	@Then("^the response should be ([^\"]*).$")
 	public void the_response_should_be(String response) {
 
-		System.out.println(response);
+		assertEquals(Boolean.valueOf(response), pandaObjective.isCompleted());
 	}
 
 }

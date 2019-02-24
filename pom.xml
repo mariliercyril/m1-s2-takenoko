@@ -9,6 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- CHANGE ME IF NEEDED, other: ISO-8859-1 -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <cucumber.version>4.0.0</cucumber.version>
     </properties>
 
     <parent>
@@ -37,7 +38,6 @@
                 <includes>
                     <include>log4j.properties</include>
                     <include>test.properties</include>
-                    <include>com/raccoon/takenoko/cucumber/ObjectivePanda.feature</include>
                 </includes>
             </testResource>
         </testResources>
@@ -184,16 +184,16 @@
         </dependency>
         
         <dependency>
-    		<groupId>info.cukes</groupId>
+    		<groupId>io.cucumber</groupId>
     		<artifactId>cucumber-java</artifactId>
-    		<version>1.2.5</version>
+    		<version>${cucumber.version}</version>
     		<scope>test</scope>
 		</dependency>
 			
 		<dependency>
-    		<groupId>info.cukes</groupId>
+    		<groupId>io.cucumber</groupId>
     		<artifactId>cucumber-junit</artifactId>
-    		<version>1.2.5</version>
+    		<version>${cucumber.version}</version>
     		<scope>test</scope>
 		</dependency>
 
