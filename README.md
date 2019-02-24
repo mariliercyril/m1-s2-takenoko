@@ -18,7 +18,7 @@ In order to develop a "client-server" version, we start doing a study of archite
 [Spring Boot](https://spring.io) - Application Framework  
 
 ## Technologies used
-[Cucumber](https://docs.cucumber.io/guides/10-minute-tutorial/) - TDD (BDD) Tool  
+[Cucumber](https://cucumber.io/) - TDD (BDD) Tool  
 [Travis CI](https://github.com/uca-m1informatique-softeng/projet-s2-19-2co/blob/preparatory-work/travis-ci_studies/what-travis-is.md) - CI Tool  
 
 ## Authors
