@@ -1,7 +1,7 @@
 package com.raccoon.takenoko.cucumber;
 
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -43,40 +43,66 @@ public class PandaObjectiveStepDefinitions {
 		mockPlayer = mock(Player.class);
 
 	}
-
-	@Given("^I have eaten (\\d+) green bamboo chunks$")
-	public void i_have_eaten_n_green_bamboo_chunks(Integer number) {
-
-		stomach.put(Color.GREEN, number) ;
+	 
+	
+	
+	@Given("I have an objective of type ORIGINAL_GREEN")
+	public void i_have_an_objective_of_type_ORIGINAL_GREEN() {
+		
+		pandaObjective = new PandaObjective(PandaObjective.Motif.ORIGINAL_GREEN) ;
+	    
+	}
+	
+	@Given("I have an objective of type ORIGINAL_YELLOW")
+	public void i_have_an_objective_of_type_ORIGINAL_YELLOW() {
+		
+		pandaObjective = new PandaObjective(PandaObjective.Motif.ORIGINAL_YELLOW) ;
+	    
+	}
+	
+	@Given("I have an objective of type ORIGINAL_PINK")
+	public void i_have_an_objective_of_type_ORIGINAL_PINK() {
+		
+		pandaObjective = new PandaObjective(PandaObjective.Motif.ORIGINAL_PINK) ;
+	  
+	}
+	
+	@Given("I have an objective of type ORIGINAL_THREE_COLORS")
+	public void i_have_an_objective_of_type_ORIGINAL_THREE_COLORS() {
+	    
+		pandaObjective = new PandaObjective(PandaObjective.Motif.ORIGINAL_THREE_COLORS) ;
+	}
+	
+	
+	@Given("I have eaten {int} GREEN bamboos")
+	public void i_have_eaten_GREEN_bamboos(int nombreGREEN) {
+	    
+		stomach.put(Color.GREEN, nombreGREEN) ;
 	}
 
-	@Given("^I have eaten (\\d+) yellow bamboo chunks$")
-	public void i_have_eaten_n_yellow_bamboo_chunks(Integer number) {
-
-		stomach.put(Color.YELLOW, number) ;
+	@Given("I have eaten {int} YELLOW bamboos")
+	public void i_have_eaten_YELLOW_bamboos(int nombreYELLOW) {
+	    
+		stomach.put(Color.YELLOW, nombreYELLOW) ;
 	}
 
-	@Given("^I have eaten (\\d+) pink bamboo chunks$")
-	public void i_have_eaten_n_pink_bamboo_chunks(Integer number) {
-
-		stomach.put(Color.PINK, number) ;
+	@Given("I have eaten {int} PINK bamboos")
+	public void i_have_eaten_PINK_bamboos(int nombrePINK) {
+	    
+		stomach.put(Color.PINK, nombrePINK) ;
 	}
-
-	@When("I ask whether the {string} objective is completed")
-	public void i_ask_whether_the_objective_is_completed(String objectiveName) {
-
-		// The panda objective depends on the scenario:
-		pandaObjective = new PandaObjective(Enum.valueOf(PandaObjective.Motif.class, objectiveName));
-
-        // So that the mock player returns the stomach (of the panda)
+	
+	@When("I check if i have validated the objective")
+	public void i_check_if_i_have_validated_the_objective() {
+	    
 		when(mockPlayer.getStomach()).thenReturn(stomach);
 		pandaObjective.checkIfCompleted(mockPlayer);
 	}
-
-	@Then("^the response should be ([^\"]*).$")
-	public void the_response_should_be(String response) {
-
-		assertEquals(Boolean.valueOf(response), pandaObjective.isCompleted());
+	
+	@Then("I should be answered ([^\"]*).$")
+	public void i_should_be_answered(String answer) {
+	    
+		assertEquals(Boolean.valueOf(answer), pandaObjective.isCompleted());
 	}
 
 }
