@@ -2,7 +2,7 @@
 ---
 
 ## SUMMARY:
-> 1. What is REST architecture
+> 1. What is REST architecture?
 2. Takenoko:
 >> 1. Game Engine
 >> 2. Player
