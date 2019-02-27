@@ -6,7 +6,7 @@ notifications:
       - chihabeddine.aourinmouche@etu.univ-cotedazur.fr
       - oualid.benazzouz@etu.univ-cotedazur.fr
       - cyril.marilier@etu.univ-cotedazur.fr
-    on_success: change
+    on_success: always # default: change
     on_failure: always
 branches:
   except:
