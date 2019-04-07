@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.Game;
 import com.cco.takenoko.game.tiles.Tile;
 import com.cco.takenoko.player.Player;
@@ -34,7 +34,7 @@ class GameTest {
 
     @BeforeEach
     void setUp(@Autowired Game game) {
-        Takeyesntko.setVerbose(false);
+        Takenoko.setVerbose(false);
         this.game = game;
         try {
             game.addPlayers(4, playerFactory);

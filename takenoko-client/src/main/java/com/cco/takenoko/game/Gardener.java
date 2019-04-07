@@ -3,7 +3,7 @@ package com.cco.takenoko.game;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.tiles.Color;
 import com.cco.takenoko.game.tiles.Tile;
 
@@ -34,7 +34,7 @@ public class Gardener {
      */
     public void move(Point position) {
         Board board = game.getBoard();
-        Takeyesntko.print("Gardener moves from " + this.position + " to " + position);
+        Takenoko.print("Gardener moves from " + this.position + " to " + position);
         this.position = position;
         board.get(this.position).increaseBambooSize(); //  Grow the bamboo where the gardener is
         this.grow(board.getNeighbours(this.position), board.get(this.position).getColor()); // ... And on the surrounding tiles of the same color

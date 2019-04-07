@@ -3,7 +3,7 @@ package com.cco.takenoko.game;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.tiles.IrrigationState;
 import com.cco.takenoko.game.tiles.Tile;
 import com.cco.takenoko.tool.UnitVector;
@@ -161,7 +161,7 @@ public class HashBoard implements Board {
             return;
         }
 
-        Takeyesntko.print("A tile has been placed at " + position + ".");
+        Takenoko.print("A tile has been placed at " + position + ".");
     }
 
     @Override

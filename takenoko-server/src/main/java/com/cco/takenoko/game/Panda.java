@@ -3,7 +3,7 @@ package com.cco.takenoko.game;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 
 import java.awt.*;
 
@@ -27,7 +27,7 @@ public class Panda {
      * @param position The location where we want the panda to go
      */
     public void move(Point position) {
-        Takeyesntko.print("Panda moves from " + this.position + " to " + position);
+        Takenoko.print("Panda moves from " + this.position + " to " + position);
         this.position = position;
         this.eat(this.position); // Eat the bamboo where the panda lands
     }

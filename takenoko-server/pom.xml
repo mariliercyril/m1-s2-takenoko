@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>takenoko</artifactId>
     <groupId>com.cco</groupId>
+    <artifactId>takenoko</artifactId>
     <version>1.0-CLIENT-SERVER</version>
   </parent>
 

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.objective.Objective;
 import com.cco.takenoko.game.objective.ObjectivePool;
 import com.cco.takenoko.game.objective.ObjectiveType;
@@ -159,7 +159,7 @@ public class Game {
             if (p.getScore() >= 9 && !emperorDistributed) {
                 emperorDistributed = true;
                 p.giveEmperor();
-                Takeyesntko.print(String.format("Player #%d has won the emperor !", p.getId()));
+                Takenoko.print(String.format("Player #%d has won the emperor !", p.getId()));
                 this.hasEmperor = p;
             }
 
@@ -175,15 +175,15 @@ public class Game {
         while (!gameOver()) {
 
             if (playerNumber == 0) {   // If it's the first player turn, I.E. we are at the beginning of a turn
-                Takeyesntko.print("\n######################################################");
-                Takeyesntko.print("Beginning of turn number " + ++turnNumber);    // We print the new turn number
+                Takenoko.print("\n######################################################");
+                Takenoko.print("Beginning of turn number " + ++turnNumber);    // We print the new turn number
             }
 
-            Takeyesntko.print("\nPlayer #" + players.get(playerNumber).getId() + " " + players.get(playerNumber).getClass().getSimpleName() + " is playing now.");
+            Takenoko.print("\nPlayer #" + players.get(playerNumber).getId() + " " + players.get(playerNumber).getClass().getSimpleName() + " is playing now.");
             try {
                 players.get(playerNumber).play(this);
             } catch (ForbiddenActionException e) {
-                Takeyesntko.print("\nPlayer #" + players.get(playerNumber).getId() + " tried to cheat: " + e.getMessage() + " I can see you, Player #" + players.get(playerNumber).getId() + "!");
+                Takenoko.print("\nPlayer #" + players.get(playerNumber).getId() + " tried to cheat: " + e.getMessage() + " I can see you, Player #" + players.get(playerNumber).getId() + "!");
             }
             playerNumber = ( playerNumber + 1 ) % players.size();   // To keep playerNumber between 0 and the size of the list of players
         }
@@ -219,9 +219,9 @@ public class Game {
 
     private void printRanking() {
         players.sort((Player p1, Player p2) -> p2.getScore() - p1.getScore());
-        Takeyesntko.print("\n RANKING");
+        Takenoko.print("\n RANKING");
         for (Player pl : players) {
-            Takeyesntko.print("Player #" + pl.getId() + " has " + pl.getScore() + " points (" + pl.getClass().getSimpleName() + ")");
+            Takenoko.print("Player #" + pl.getId() + " has " + pl.getScore() + " points (" + pl.getClass().getSimpleName() + ")");
         }
     }
 

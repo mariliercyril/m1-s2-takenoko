@@ -20,9 +20,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
-public class Takeyesntko {
+public class Takenoko {
 
-    private static final Logger LOGGER = Logger.getLogger(Takeyesntko.class);
+    private static final Logger LOGGER = Logger.getLogger(Takenoko.class);
 
     private static boolean verbose = true;
 
@@ -33,7 +33,7 @@ public class Takeyesntko {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(Takeyesntko.class, args);
+        SpringApplication.run(Takenoko.class, args);
 
     }
 
@@ -101,7 +101,7 @@ public class Takeyesntko {
     */
     private void launchManyGamesNoJutsu(int playerNumber, FactoryBean<Player> playerFactory) {
 
-        Takeyesntko.setVerbose(false);
+        Takenoko.setVerbose(false);
 
         Map<Integer, Integer> playerWins = new HashMap<>();
         int[] scores = new int [playerNumber];
@@ -146,7 +146,7 @@ public class Takeyesntko {
         }
 
         // printing out results
-        Takeyesntko.setVerbose(true);
+        Takenoko.setVerbose(true);
         List<Map.Entry<Integer, Integer>> sortedWinners = playerWins.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toList()); // Sorting the players according to their score
         print(String.format(" -- Launched %6.0f games!", Constants.NUMBER_OF_GAMES_FOR_STATS));
         print(String.format("| %-8s| %-14s| %-12s| %-9s|", "Player ", "Type","Victories", "Avg. Score\t"));
@@ -171,7 +171,7 @@ public class Takeyesntko {
      */
     public static void setVerbose(boolean verbose) {
 
-        Takeyesntko.verbose = verbose;
+        Takenoko.verbose = verbose;
     }
 
 }

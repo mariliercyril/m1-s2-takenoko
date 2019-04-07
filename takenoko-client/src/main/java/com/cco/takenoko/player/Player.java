@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.Game;
 import com.cco.takenoko.game.objective.Objective;
 import com.cco.takenoko.game.objective.ObjectivePool;
@@ -91,7 +91,7 @@ public abstract class Player {
         if (validityCheck != 2) {
             throw new ForbiddenActionException("Player tried to play an incorrect number of actions.");
         }
-        Takeyesntko.print("Choosen actions : " + Arrays.toString(plannedActions));
+        Takenoko.print("Choosen actions : " + Arrays.toString(plannedActions));
 
         // step 2 : execute all actions
         for (Action a : plannedActions) {
@@ -99,7 +99,7 @@ public abstract class Player {
         }
 
         // step 3 : count points
-        Takeyesntko.print("Player has played. Current score : " + getScore());
+        Takenoko.print("Player has played. Current score : " + getScore());
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class Player {
      * @param game current game
      */
     private void execute(Action a, Game game) throws ForbiddenActionException {
-        Takeyesntko.print("PLAYING " + a);
+        Takenoko.print("PLAYING " + a);
 
         switch (a) {
             case PUT_DOWN_TILE:
@@ -131,21 +131,21 @@ public abstract class Player {
                 game.getObjectivePool().notifyBambooGrowth(game.getBoard());
                 break;
             case DRAW_IRRIGATION:
-                Takeyesntko.print("Player drew an irrigation");
+                Takenoko.print("Player drew an irrigation");
                 this.irrigations++;
                 if (this.keepIrrigation()) {
-                    Takeyesntko.print(String.format("Player chooses to keep it. He now has %d irrigations.", irrigations));
+                    Takenoko.print(String.format("Player chooses to keep it. He now has %d irrigations.", irrigations));
                     break;
                 }
                 if (!this.putDownIrrigation(game)) {
-                    Takeyesntko.print(String.format("He can't put it down where he chooses to. He keeps it, he now has %d irrigations.", irrigations));
+                    Takenoko.print(String.format("He can't put it down where he chooses to. He keeps it, he now has %d irrigations.", irrigations));
                     break;
                 }
-                Takeyesntko.print(String.format("Player has put down an irirgation ! He now has %d irrigations.", irrigations));
+                Takenoko.print(String.format("Player has put down an irirgation ! He now has %d irrigations.", irrigations));
                 break;
             case VALID_OBJECTIVE:
                 Objective objective = this.chooseObjectiveToValidate();
-                Takeyesntko.print(String.format("Player choosed to validate the objective %s !", objective));
+                Takenoko.print(String.format("Player choosed to validate the objective %s !", objective));
                 validateObjective(objective);
                 // we may have emptied a stomach
                 game.getObjectivePool().notifyStomachEmptied(this);
@@ -156,11 +156,11 @@ public abstract class Player {
                 }
                 ObjectiveType type = this.whatTypeToDraw(game.getObjectivePool());
                 objectives.add(game.drawObjective(type));
-                Takeyesntko.print(String.format("Player has drawn a %s objective, he now has %d objectives in his hand", type, objectives.size()));
+                Takenoko.print(String.format("Player has drawn a %s objective, he now has %d objectives in his hand", type, objectives.size()));
                 break;
             case PUT_DOWN_IRRIGATION:
                 if (this.putDownIrrigation(game)) {
-                    Takeyesntko.print("Player put down an irrigation that he had in his stock ! He now have " + irrigations);
+                    Takenoko.print("Player put down an irrigation that he had in his stock ! He now have " + irrigations);
                 }
                 break;
             case MOVE_PANDA: // Works the same way as MOVE_GARDENER except it's a panda
@@ -178,7 +178,7 @@ public abstract class Player {
                 }
                 break;
             default:
-                Takeyesntko.print(a + " UNSUPPORTED");
+                Takenoko.print(a + " UNSUPPORTED");
         }
     }
 
@@ -188,7 +188,7 @@ public abstract class Player {
 
     private void validateObjective(Objective objective) {
         if (objective != null) {
-            Takeyesntko.print("Player has completed an objective ! " + objective);
+            Takenoko.print("Player has completed an objective ! " + objective);
             this.objectives.remove(objective);
             this.score += objective.getScore();
 
@@ -224,7 +224,7 @@ public abstract class Player {
     protected void eatBamboo(Color color) {
         if (Objects.nonNull(color)) {
             stomach.put(color, stomach.get(color) + 1);
-            Takeyesntko.print(String.format("Player has eaten a %s bamboo ! He now has %d %s bamboo(s) in his stomach", color, stomach.get(color), color));
+            Takenoko.print(String.format("Player has eaten a %s bamboo ! He now has %d %s bamboo(s) in his stomach", color, stomach.get(color), color));
         }
     }
 

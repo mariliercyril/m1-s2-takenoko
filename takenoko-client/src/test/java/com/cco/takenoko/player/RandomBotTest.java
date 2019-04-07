@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.cco.takenoko.Takeyesntko;
+import com.cco.takenoko.Takenoko;
 import com.cco.takenoko.game.*;
 import com.cco.takenoko.game.tiles.Color;
 import com.cco.takenoko.game.tiles.Tile;
@@ -47,7 +47,7 @@ class RandomBotTest {
 
     @BeforeEach
     void build(@Autowired Game game) {
-    	Takeyesntko.setVerbose(false);
+    	Takenoko.setVerbose(false);
 
         g = game;
         p = new RandomBot();

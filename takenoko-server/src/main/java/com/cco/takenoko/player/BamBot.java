@@ -19,8 +19,13 @@ public class BamBot extends RandomBot {
 
     private Point lastPlacedTile;
 
+	public Point getLastPlacedTile() {
+
+		return lastPlacedTile;
+	}
+
     @Override
-    protected Point whereToPutDownTile(Game game, Tile t) {
+    public Point whereToPutDownTile(Game game, Tile t) {
         Map<Point, Integer> possibleBambooGrowth = new HashMap<>();
 
         for (Point available : game.getBoard().getAvailablePositions()) {    // Checking the possible outcomes of placing the tile

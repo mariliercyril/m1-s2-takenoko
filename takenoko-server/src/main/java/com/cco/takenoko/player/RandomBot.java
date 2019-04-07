@@ -26,7 +26,7 @@ public class RandomBot extends Player {
      * @param game the game in which the player is playing
      */
     @Override
-    protected Point whereToPutDownTile(Game game, Tile t) {
+    public Point whereToPutDownTile(Game game, Tile t) {
         Board b = game.getBoard();
         List availablePositions = b.getAvailablePositions();
         Collections.shuffle(availablePositions);
