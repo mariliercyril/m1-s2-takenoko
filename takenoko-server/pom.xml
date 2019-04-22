@@ -12,4 +12,36 @@
   <name>takenoko-server</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <id>oneGame</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <mainClass>com.cco.takenoko.Takenoko</mainClass>
+              <arguments>
+                <argument>seeABattle</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.cco.takenoko.Takenoko</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -6,7 +6,7 @@ public final class Constants {
 
 	private static final PropertiesFileReader PF_READER = PropertiesFileReader.getInstance();
 
-	private static final String FILE_NAME = "takeyesntko";
+	private static final String FILE_NAME = "takenoko";
 
 	public static final int MAX_AMOUNT_OF_OBJECTIVES = PF_READER.getIntProperty(FILE_NAME, "max.amount.of.objectives", 5);
 	public static final int NUMBER_OF_TILES_TO_DRAW = PF_READER.getIntProperty(FILE_NAME, "number.of.tiles.to.draw", 3);
