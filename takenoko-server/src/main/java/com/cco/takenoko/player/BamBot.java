@@ -39,9 +39,10 @@ public class BamBot extends RandomBot {
         this.lastPlacedTile = Tools.mapMaxKey(possibleBambooGrowth);
         return lastPlacedTile;
     }
-
+    
+    // TODO: Improve the quick fix "Replace 'protected' by 'public'".
     @Override
-    protected Tile chooseTile(Game game) {
+	public Tile chooseTile(Game game) {
         List<Tile> tiles = game.getTiles();
         Map<Tile, Point> bestMoves = new HashMap<>();
 
