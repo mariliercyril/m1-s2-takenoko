@@ -15,18 +15,19 @@ public class ServerFacade {
 
 	Game game;
 
-	Tile t = null;
-
-	Player player;
+	Tile t;
 
 	BamBot bamBot;
+
+	Point point;
 
 	public ServerFacade() {
 
 		game = Takenoko.getGame();
 
-		while (t == null) {
-			t = game.getTile();
+		t = game.getTile();
+		if (t == null) {
+			t = new Tile();
 		}
 
 		for (Player player : game.getPlayers()) {
@@ -38,13 +39,8 @@ public class ServerFacade {
 
 	public Point whereToPutDownTile() {
 
-		Point point = null;
-
 		if (bamBot != null) {
 			point = bamBot.whereToPutDownTile(game, t);
-			while (point == null) {
-				whereToPutDownTile();
-			}
 		}
 
 		return point;
