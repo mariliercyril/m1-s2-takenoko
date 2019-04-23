@@ -160,10 +160,15 @@ public class Tile {
 
         if (!this.sideIrrigationState.get(direction).equals(IrrigationState.IRRIGATED)) {
             this.sideIrrigationState.put(direction, IrrigationState.IRRIGABLE);
-            this.irrigable = true;
+            this.setIrrigable(true);
         }
     }
 
+    // TODO: Say why this setter.
+    public void setIrrigable(boolean irrigable) {
+
+    	this.irrigable = irrigable;
+    }
 
     /**
      * Increase the size of the bamboo on the tile. We make sure after increasing the the size doesn't exceed the max size.
