@@ -92,6 +92,11 @@ public class ServerFacade {
 
 		return pointJson;
 	}
+	
+	// TODO: Javadoc of this service as a method.
+	public Game getGame(){
+		return this.game;
+	}
 
 	// TODO: Javadoc of this service as a method.
 	public boolean putDownTile(String tileJson, String pointJson) {
