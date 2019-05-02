@@ -47,7 +47,7 @@ class BamBotTest {
     @Mock
     private PatternObjective aObj1;
 
-    @Resource(name = "&everyOther")
+    @Resource(name = "&bamBots")
     FactoryBean<Player> playerFactory;
 
     private void place(int x, int y, Color c) {

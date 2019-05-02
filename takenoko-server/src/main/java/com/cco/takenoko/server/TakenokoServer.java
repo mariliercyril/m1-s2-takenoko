@@ -1,24 +1,26 @@
 package com.cco.takenoko.server;
 
 import org.apache.log4j.Logger;
+
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.ObjectFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.context.annotation.Bean;
 
 import com.cco.takenoko.server.facade.ServerFacade;
-import com.cco.takenoko.server.game.Game;
-import com.cco.takenoko.server.player.BamBotFactory;
-import com.cco.takenoko.server.player.BotFactory;
-import com.cco.takenoko.server.player.Player;
-import com.cco.takenoko.server.tool.Constants;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import com.cco.takenoko.server.game.Game;
+
+import com.cco.takenoko.server.player.BamBotFactory;
+import com.cco.takenoko.server.player.Player;
 
 @SpringBootApplication
 public class TakenokoServer {
@@ -44,7 +46,7 @@ public class TakenokoServer {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(@Autowired @Qualifier("giveMeBambots") FactoryBean<Player> gimmeBambots) {
+    public CommandLineRunner commandLineRunner(@Autowired @Qualifier("bamBots") FactoryBean<Player> bamBots) {
         return args -> {
 
 
@@ -57,25 +59,20 @@ public class TakenokoServer {
             print("                                                         Presented by 2co\n");
 
             if (args.length > 0) {
-                launch1gameNoJutsu(4, gimmeBambots);
+                launch1gameNoJutsu(4, bamBots);
             }
             else {
-                new ServerFacade().launchManyGamesNoJutsu(2, gimmeBambots, gameObjectFactory);
+                new ServerFacade().launchManyGamesNoJutsu(2, bamBots, gameObjectFactory);
             }
 
         };
     }
 
-    @Bean(name = "everyOther")
-    public BotFactory botFactory() {
-        return new BotFactory();
-    }
+	@Bean(name = "bamBots")
+	public BamBotFactory bamBotFactory() {
 
-    @Bean(name = "giveMeBambots")
-    public BamBotFactory bamBotFactory() {
-        return new BamBotFactory();
-    }
-
+		return new BamBotFactory();
+	}
 
     /**
      * Allows a conditionnal print
