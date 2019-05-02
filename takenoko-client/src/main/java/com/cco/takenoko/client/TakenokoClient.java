@@ -3,9 +3,19 @@ package com.cco.takenoko.client;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.boot.web.client.RestTemplateBuilder;
+
+import org.springframework.context.annotation.Bean;
+
+import org.springframework.web.client.RestTemplate;
+
+import com.cco.takenoko.client.consumer.ConnectionCommandLineRunner;
 
 /**
  * The {@code TakenokoClient} class is the main class of the Takenoko client.
@@ -15,7 +25,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TakenokoClient {
 
+
 	private static Integer clientId;
+
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
+
+		return restTemplateBuilder.build();
+	}
 
 	public static void main(String[] args) {
 
@@ -28,6 +48,12 @@ public class TakenokoClient {
 		client.setDefaultProperties(map);
 
 		client.run(args);
+	}
+
+	@Bean
+	public ConnectionCommandLineRunner getConnectionCommandLineRunner() {
+
+		return new ConnectionCommandLineRunner(restTemplate, clientId);
 	}
 
 }
