@@ -16,15 +16,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 import com.cco.takenoko.client.consumer.ConnectionCommandLineRunner;
+import com.cco.takenoko.client.consumer.SubscriptionCommandLineRunner;
 
 /**
- * The {@code TakenokoClient} class is the main class of the Takenoko client.
+ * The {@code TakenokoClient} class is the main class of a Takenoko client.
  * 
  * @author cmarilier
  */
 @SpringBootApplication
 public class TakenokoClient {
-
 
 	private static Integer clientId;
 
@@ -54,6 +54,12 @@ public class TakenokoClient {
 	public ConnectionCommandLineRunner getConnectionCommandLineRunner() {
 
 		return new ConnectionCommandLineRunner(restTemplate, clientId);
+	}
+
+	@Bean
+	public SubscriptionCommandLineRunner getSubscriptionCommandLineRunner() {
+
+		return new SubscriptionCommandLineRunner(restTemplate, clientId);
 	}
 
 }

@@ -1,7 +1,15 @@
 package com.cco.takenoko.server.tool;
 
 public class ForbiddenActionException extends Exception {
-    public ForbiddenActionException(String s) {
-        super(s);
-    }
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ForbiddenActionException(String message) {
+
+		super(message);
+	}
+
 }

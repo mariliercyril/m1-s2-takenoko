@@ -1,24 +1,34 @@
 package com.cco.takenoko.server.game;
 
-import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Service;
 
 import com.cco.takenoko.server.TakenokoServer;
+
 import com.cco.takenoko.server.game.objective.Objective;
 import com.cco.takenoko.server.game.objective.ObjectivePool;
 import com.cco.takenoko.server.game.objective.ObjectiveType;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.ImprovementType;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.player.Player;
+
 import com.cco.takenoko.server.tool.Constants;
 import com.cco.takenoko.server.tool.ForbiddenActionException;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class representing the games, and allowing to interract with it
@@ -63,8 +73,6 @@ public class Game {
 
         this.players = new ArrayList<>();
 
-        Player.reinitCounter();
-
         initTileDeck();
         initImprovements();
     }
@@ -101,13 +109,9 @@ public class Game {
         Collections.shuffle(tilesDeck);
     }
 
-    public void addPlayers(int numberOfPlayers, FactoryBean<Player> factory) throws Exception {
-        // If we didn't use the constructor with players in it we add them in the game
-        if (players.isEmpty()) {
-            for (int i = 0; i < numberOfPlayers; i++) {
-                this.players.add(factory.getObject());
-            }
-        }
+	public void addPlayers(List<Player> players) throws Exception {
+
+		(this.players).addAll(players);
     }
 
     /*
@@ -116,9 +120,10 @@ public class Game {
      *************************************************
      */
 
-    protected List getTilesDeck() {
-        return tilesDeck;
-    }
+	protected List<Tile> getTilesDeck() {
+
+		return tilesDeck;
+	}
 
     public List<Player> getPlayers() {
         return players;
@@ -181,6 +186,7 @@ public class Game {
 
             TakenokoServer.print("\nPlayer #" + players.get(playerNumber).getId() + " " + players.get(playerNumber).getClass().getSimpleName() + " is playing now.");
             try {
+            	// TODO: The separation should be done here...
                 players.get(playerNumber).play(this);
             } catch (ForbiddenActionException e) {
                 TakenokoServer.print("\nPlayer #" + players.get(playerNumber).getId() + " tried to cheat: " + e.getMessage() + " I can see you, Player #" + players.get(playerNumber).getId() + "!");

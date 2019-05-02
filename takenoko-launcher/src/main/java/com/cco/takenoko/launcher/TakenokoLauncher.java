@@ -40,7 +40,7 @@ public class TakenokoLauncher {
 
 		new TakenokoLauncher(clientsNumber);
 
-		//System.exit(0);
+		System.exit(0);
 	}
 
 }

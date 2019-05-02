@@ -31,9 +31,9 @@ public class BamBot extends Player {
 
 	private Point lastPlacedTile;
 
-	public BamBot() {
+	public BamBot(Integer id) {
 
-		super();
+		super(id);
 	}
 
 	public Point getLastPlacedTile() {

@@ -1,20 +1,32 @@
 package com.cco.takenoko.server.player;
 
 import java.awt.Point;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+
 import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cco.takenoko.server.TakenokoServer;
+
 import com.cco.takenoko.server.game.Game;
+
 import com.cco.takenoko.server.game.objective.Objective;
 import com.cco.takenoko.server.game.objective.ObjectivePool;
 import com.cco.takenoko.server.game.objective.ObjectiveType;
 import com.cco.takenoko.server.game.objective.PandaObjective;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.IrrigationState;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.tool.Constants;
 import com.cco.takenoko.server.tool.ForbiddenActionException;
 import com.cco.takenoko.server.tool.UnitVector;
@@ -27,48 +39,68 @@ import com.cco.takenoko.server.tool.UnitVector;
 @RestController
 public abstract class Player {
 
-    private int score;
-    private int id;
-    private List<Objective> objectives;
-    private static int counter = 0;
-    private Map<Color, Integer> stomach;
-    private int irrigations;
+	private Integer id;
+	private int score;
+	private List<Objective> objectives;
+	private Map<Color, Integer> stomach;
+	private int irrigations;
 
-    public Player() {
-        score = 0;
-        counter++;
-        id = counter;
-        objectives = new ArrayList<>();
-        stomach = new EnumMap<>(Color.class);
-        stomach.put(Color.GREEN, 0);
-        stomach.put(Color.YELLOW, 0);
-        stomach.put(Color.PINK, 0);
-        irrigations = 0;
-    }
+	private static List<Player> players = new ArrayList<>();
 
-    public int getScore() {
-        return score;
-    }
+	public Player(Integer id) {
 
-    public int getId() {
-        return id;
-    }
+		this.id = id;
 
-    public int getIrrigations() {
-        return irrigations;
-    }
+		initialize();
 
-    public List<Objective> getObjectives() {
-        return objectives;
-    }
+		players.add(this);
+	}
 
-    public void addObjective(Objective objective) {
-        this.objectives.add(objective);
-    }
+	public void initialize() {
 
-    public Map<Color, Integer> getStomach() {
-        return stomach;
-    }
+		score = 0;
+		objectives = new ArrayList<>();
+		stomach = new EnumMap<>(Color.class);
+		for (Color color : Color.values()) {
+			stomach.put(color, 0);
+		}
+		irrigations = 0;
+	}
+
+	public int getId() {
+
+		return id;
+	}
+
+	public int getScore() {
+
+		return score;
+	}
+
+	public List<Objective> getObjectives() {
+
+		return objectives;
+	}
+
+	public void addObjective(Objective objective) {
+
+		this.objectives.add(objective);
+	}
+
+	public Map<Color, Integer> getStomach() {
+
+		return stomach;
+	}
+
+	public int getIrrigations() {
+
+		return irrigations;
+	}
+
+	public static List<Player> getPlayers() {
+
+		return players;
+	}
 
     /**
      * This method will be the one called by the game to give their turn to the players/
@@ -212,10 +244,6 @@ public abstract class Player {
     public abstract Point whereToPutDownTile(Game game, Tile t);
 
     protected abstract Tile chooseTile(Game game);
-
-    public static void reinitCounter() {
-        counter = 0;
-    }
 
     protected abstract Point whereToMoveGardener(Game game, List<Point> available);
 

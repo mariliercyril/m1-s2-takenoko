@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * The {@code ConnectionController} allows a client to initialize a connection with the server.
+ * The {@code ConnectionCommandLineRunner} allows a client to initialize a connection with the server.
  * 
  * @author cmarilier
  */
