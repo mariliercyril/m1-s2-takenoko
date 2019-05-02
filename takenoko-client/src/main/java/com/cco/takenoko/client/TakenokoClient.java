@@ -1,5 +1,8 @@
 package com.cco.takenoko.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +15,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TakenokoClient {
 
+	private static Integer clientId;
+
 	public static void main(String[] args) {
 
 		SpringApplication client = new SpringApplication(TakenokoClient.class);
+
+		clientId = Integer.valueOf(args[0]);
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("server.port", 9000 + clientId);
+		client.setDefaultProperties(map);
 
 		client.run(args);
 	}

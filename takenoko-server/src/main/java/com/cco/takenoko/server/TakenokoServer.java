@@ -22,6 +22,9 @@ import com.cco.takenoko.server.game.Game;
 import com.cco.takenoko.server.player.BamBotFactory;
 import com.cco.takenoko.server.player.Player;
 
+/**
+ * The {@code TakenokoServer} class is the main class of the Takenoko server.
+ */
 @SpringBootApplication
 public class TakenokoServer {
 

@@ -34,7 +34,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class BamBotTest {
 
-
     private Game g;
     private Player bot;
     // I don't want to write Color.GREEN every time I need it (which is a lot)

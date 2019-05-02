@@ -1,20 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>com.cco</groupId>
   <artifactId>takenoko</artifactId>
+  <version>1.0-CLIENT-SERVER</version>
 
   <packaging>pom</packaging>
 
-  <version>1.0-CLIENT-SERVER</version>
+  <modules>
+    <module>takenoko-client</module>
+    <module>takenoko-server</module>
+    <module>takenoko-launcher</module>
+  </modules>
 
   <properties>
+    <!-- For solving the problem of non-integration of the server module into the client package -->
+	<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <junit.jupiter.version>5.3.1</junit.jupiter.version>
-    <junit.platform.version>1.3.1</junit.platform.version>
-    <mockito.version>2.22.0</mockito.version>
-    <cucumber.version>4.0.0</cucumber.version>
+
+    <org.junit.platform.version>1.3.1</org.junit.platform.version>
+    <org.junit.jupiter.version>5.3.1</org.junit.jupiter.version>
+    <org.mockito.version>2.22.0</org.mockito.version>
+    <io.cucumber.version>4.0.0</io.cucumber.version>
   </properties>
 
   <parent>
@@ -31,7 +42,7 @@
         <directory>src/main/resources</directory>
         <includes>
           <include>log4j.properties</include>
-          <include>takenoko.properties</include>
+          <include>main.properties</include>
         </includes>
       </resource>
     </resources>
@@ -44,8 +55,25 @@
         </includes>
       </testResource>
     </testResources>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <configuration>
+            <skip>true</skip>
+            <mainClass>**undefined**</mainClass>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 
     <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -72,70 +100,13 @@
   </build>
 
   <dependencies>
-    <!-- For unit testing  -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
-      <version>5.2.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-launcher</artifactId>
-      <version>${junit.platform.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-runner</artifactId>
-      <version>${junit.platform.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- For Mockito testing -->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>${mockito.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- For JUnit... -->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <version>${mockito.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- For logging  -->
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
-
     <!-- The Spring Boot starters -->
+    <!-- (See at https://www.baeldung.com/spring-boot-starters, for example.) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
-    <!-- Spring Boot starter for test -->
+    <!-- For Spring Boot to start test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -148,30 +119,79 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!-- Spring Boot starter for web -->
+    <!-- For Spring Boot to start Web -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- For JUnit 5 testing -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${org.junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-runner</artifactId>
+      <version>${org.junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${org.junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${org.junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- For Mockito testing -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${org.mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- For Mockito testing by JUnit -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${org.mockito.version}</version>
+      <scope>test</scope>
     </dependency>
 
     <!-- For Cucumber testing -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
+      <version>${io.cucumber.version}</version>
       <scope>test</scope>
     </dependency>
-
+    <!-- For Cucumber testing by JUnit -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
-      <version>${cucumber.version}</version>
+      <version>${io.cucumber.version}</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
-  <modules>
-    <module>takenoko-client</module>
-    <module>takenoko-server</module>
-  </modules>
+    <!-- For logging  -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+  </dependencies>
 </project>
