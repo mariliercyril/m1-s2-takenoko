@@ -1,14 +1,8 @@
 package com.cco.takenoko.player;
 
-import java.awt.Point;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cco.takenoko.game.Board;
-import com.cco.takenoko.game.tiles.Tile;
 import com.cco.takenoko.server.ServerFacade;
 
 @RestController
@@ -75,17 +69,5 @@ public class ClientBot {
 
 		return response;
 	}
-	
-	@RequestMapping("/isIrrigable/{x}/{y}")
-	public String isIrrigable(@PathVariable("x") int x, @PathVariable("y") int y){
-		String str="";
-		Point position=new Point(x,y);
-		Board board=this.serverFacade.getGame().getBoard();
-		Tile tile=board.get(position);
-		// List<Tile> irrigableTiles=board.getIrrigableTiles();
-		str=tile.isIrrigable() 
-				? String.format("The tile at (%d, %d) is irrigable", x, y) 
-				: String.format("The tile at (%d, %d) is <b>not</b> irrigable", x, y);  
-		return str;
-	}
+
 }
