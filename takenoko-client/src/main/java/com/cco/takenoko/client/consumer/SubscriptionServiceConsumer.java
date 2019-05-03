@@ -14,7 +14,7 @@ import com.cco.takenoko.client.model.Client;
 @Order(1)
 public class SubscriptionServiceConsumer extends AbstractServiceConsumer {
 
-	public SubscriptionServiceConsumer(RestTemplate restTemplate, Integer id) {
+	public SubscriptionServiceConsumer(RestTemplate restTemplate, int id) {
 
 		super(restTemplate, id);
 	}
@@ -32,7 +32,7 @@ public class SubscriptionServiceConsumer extends AbstractServiceConsumer {
 
 		Client client = new Client(id);
 
-		restTemplate.postForEntity(SERVER_URL + "/clients/{id}", client, Client.class, id);
+		restTemplate.postForEntity(SERVER_URL + "/clients", client, Client.class);
 	}
 
 }

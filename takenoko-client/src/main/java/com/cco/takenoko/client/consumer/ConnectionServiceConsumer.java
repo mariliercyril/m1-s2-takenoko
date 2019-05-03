@@ -17,7 +17,7 @@ public class ConnectionServiceConsumer extends AbstractServiceConsumer {
 
 	private static final String SERVER_RESPONSE_FORMAT = "Status of the connection from client %d to the server: %s.";
 
-	public ConnectionServiceConsumer(RestTemplate restTemplate, Integer id) {
+	public ConnectionServiceConsumer(RestTemplate restTemplate, int id) {
 
 		super(restTemplate, id);
 	}
@@ -38,7 +38,7 @@ public class ConnectionServiceConsumer extends AbstractServiceConsumer {
 	 */
 	public int ping() {
 
-		ResponseEntity<String> responseEntity = restTemplate.getForEntity(SERVER_URL + "/", String.class);
+		ResponseEntity<String> responseEntity = restTemplate.getForEntity(SERVER_URL + "/{id}", String.class, id);
 		HttpStatus statusCode = responseEntity.getStatusCode();
 
 		int code = statusCode.value();
