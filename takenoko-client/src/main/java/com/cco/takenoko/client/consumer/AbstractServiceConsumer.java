@@ -18,9 +18,9 @@ public abstract class AbstractServiceConsumer implements CommandLineRunner {
 	protected RestTemplate restTemplate;
 
 	// The client ID
-	protected Integer id;
+	protected int id;
 
-	public AbstractServiceConsumer(RestTemplate restTemplate, Integer id) {
+	public AbstractServiceConsumer(RestTemplate restTemplate, int id) {
 
 		this.restTemplate = restTemplate;
 		this.id = id;

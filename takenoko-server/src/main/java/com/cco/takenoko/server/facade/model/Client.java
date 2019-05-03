@@ -20,7 +20,6 @@ public class Client {
 		counter++;
 	}
 
-	@JsonProperty("id")
 	public int getId() {
 
 		return id;
