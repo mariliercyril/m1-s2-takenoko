@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Bean;
 
 import org.springframework.web.client.RestTemplate;
 
-import com.cco.takenoko.client.consumer.ConnectionCommandLineRunner;
-import com.cco.takenoko.client.consumer.SubscriptionCommandLineRunner;
+import com.cco.takenoko.client.consumer.ConnectionServiceConsumer;
+import com.cco.takenoko.client.consumer.SubscriptionServiceConsumer;
 
 /**
  * The {@code TakenokoClient} class is the main class of a Takenoko client.
@@ -51,15 +51,15 @@ public class TakenokoClient {
 	}
 
 	@Bean
-	public ConnectionCommandLineRunner getConnectionCommandLineRunner() {
+	public ConnectionServiceConsumer getConnectionServiceConsumer() {
 
-		return new ConnectionCommandLineRunner(restTemplate, clientId);
+		return new ConnectionServiceConsumer(restTemplate, clientId);
 	}
 
 	@Bean
-	public SubscriptionCommandLineRunner getSubscriptionCommandLineRunner() {
+	public SubscriptionServiceConsumer getSubscriptionServiceConsumer() {
 
-		return new SubscriptionCommandLineRunner(restTemplate, clientId);
+		return new SubscriptionServiceConsumer(restTemplate, clientId);
 	}
 
 }
