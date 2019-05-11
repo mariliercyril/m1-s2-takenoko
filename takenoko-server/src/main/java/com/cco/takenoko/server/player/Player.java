@@ -139,7 +139,7 @@ public class Player {
 		TakenokoServer.print("Player has played. Current score: " + getScore());
 	}
 
-	public void throwDice(Game game) throws ForbiddenActionException {
+	private void throwDice(Game game) throws ForbiddenActionException {
 
 		Random rand = new Random();
 		switch (rand.nextInt() % 6) {
@@ -158,7 +158,7 @@ public class Player {
 		}
 	}
 
-	protected Action[] planActions(Game game) {
+	private Action[] planActions(Game game) {
 
 		// Safety action set
 		Action[] actionSet = new Action[]{Action.PUT_DOWN_TILE, Action.MOVE_GARDENER, Action.VALID_OBJECTIVE};
@@ -270,7 +270,7 @@ public class Player {
 	/**
 	 * Is random for now but should be overriden in child classes according to the player's strategies.
 	 */
-	public void tileImprovement(Game game, List<Tile> improvableTiles) throws ForbiddenActionException {
+	private void tileImprovement(Game game, List<Tile> improvableTiles) throws ForbiddenActionException {
 
 		// For safety
 		if (game.noMoreImprovements()) {
@@ -372,7 +372,7 @@ public class Player {
 		return lastPlacedTile;
 	}
 
-	protected Point whereToMoveGardener(Game game, List<Point> available) {
+	public Point whereToMoveGardener(Game game, List<Point> available) {
 
 		Map<Point, Integer> outcomes = new HashMap<>();
 		Tile destination;
@@ -391,12 +391,12 @@ public class Player {
 		return Tools.mapMaxKey(outcomes);
 	}
 
-	public boolean keepIrrigation() {
+	private boolean keepIrrigation() {
 
 		return new Random().nextBoolean();
 	}
 
-	protected boolean putDownIrrigation(Game game) {
+	private boolean putDownIrrigation(Game game) {
 
 		boolean successfulIrrigation = false;
 		// If a tile has been placed since the last time we irrigated
@@ -419,7 +419,7 @@ public class Player {
 	 * The player validates the bamboo objectives first.
 	 * For now, he doesn't try to validate the highest-scoring objective.
 	 */
-	protected Objective chooseObjectiveToValidate() {
+	public Objective chooseObjectiveToValidate() {
 
 		List<Objective> completedObjectives = new ArrayList<>();
 		for (Objective objective : this.getObjectives()) {
@@ -462,7 +462,7 @@ public class Player {
 		}
 	}
 
-	protected ObjectiveType whatTypeToDraw(ObjectivePool pool) {
+	private ObjectiveType whatTypeToDraw(ObjectivePool pool) {
 
 		if (!pool.isDeckEmpty(ObjectiveType.PANDA)) {
 			return ObjectiveType.PANDA;
@@ -475,7 +475,7 @@ public class Player {
 		return types.get(0);
 	}
 
-	protected Point whereToMovePanda(Game game, List<Point> available) {
+	public Point whereToMovePanda(Game game, List<Point> available) {
 
 		// The player chooses to eat the bamboo pieces he lacks the most
 		int minValue = this.getStomach().get(Color.PINK);
@@ -498,7 +498,7 @@ public class Player {
 		return available.get(0);
 	}
 
-	protected void eatBamboo(Color color) {
+	private void eatBamboo(Color color) {
 
 		if (Objects.nonNull(color)) {
 			this.stomach.put(color, this.stomach.get(color) + 1);
@@ -506,7 +506,7 @@ public class Player {
 		}
 	}
 
-	public final boolean putDownIrrigation(Game game, Point position, UnitVector direction) {
+	private final boolean putDownIrrigation(Game game, Point position, UnitVector direction) {
 
 		if (irrigations > 0 && game.getBoard().get(position).getIrrigationState(direction).equals(IrrigationState.IRRIGABLE)) {
 			irrigations--;
