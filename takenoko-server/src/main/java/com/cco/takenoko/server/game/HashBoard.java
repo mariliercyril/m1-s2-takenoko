@@ -1,17 +1,27 @@
 package com.cco.takenoko.server.game;
 
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Service;
 
 import com.cco.takenoko.server.TakenokoServer;
+
 import com.cco.takenoko.server.game.tiles.IrrigationState;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.tool.UnitVector;
 import com.cco.takenoko.server.tool.Vector;
 
-import java.awt.*;
-import java.util.*;
+import java.awt.Point;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Service("hashBoard")
 @Scope("prototype")

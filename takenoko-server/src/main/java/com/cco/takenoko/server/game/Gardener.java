@@ -1,13 +1,16 @@
 package com.cco.takenoko.server.game;
 
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Component;
 
 import com.cco.takenoko.server.TakenokoServer;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
 
-import java.awt.*;
+import java.awt.Point;
+
 import java.util.List;
 
 @Component

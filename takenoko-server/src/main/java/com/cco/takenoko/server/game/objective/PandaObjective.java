@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import com.cco.takenoko.server.game.tiles.Color;
+
 import com.cco.takenoko.server.player.Player;
 
 /**

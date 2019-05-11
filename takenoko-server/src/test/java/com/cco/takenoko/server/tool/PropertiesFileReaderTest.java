@@ -9,7 +9,10 @@ import org.apache.log4j.Logger;
 
 import org.apache.log4j.spi.LoggingEvent;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import org.mockito.ArgumentCaptor;
 

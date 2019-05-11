@@ -1,6 +1,7 @@
 package com.cco.takenoko.server.game.objective;
 
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Service;
 
 import com.cco.takenoko.server.game.Board;

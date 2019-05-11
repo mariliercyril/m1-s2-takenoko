@@ -23,10 +23,7 @@ import com.cco.takenoko.server.game.objective.ObjectivePool;
 import com.cco.takenoko.server.game.objective.ObjectiveType;
 import com.cco.takenoko.server.game.objective.PandaObjective;
 
-import com.cco.takenoko.server.game.tiles.Color;
-import com.cco.takenoko.server.game.tiles.ImprovementType;
-import com.cco.takenoko.server.game.tiles.IrrigationState;
-import com.cco.takenoko.server.game.tiles.Tile;
+import com.cco.takenoko.server.game.tiles.*;
 
 import com.cco.takenoko.server.tool.Constants;
 import com.cco.takenoko.server.tool.ForbiddenActionException;
@@ -294,8 +291,8 @@ public class Player {
 	 */
 	private boolean isMovingPandaUseful(Game game) {
 
-		for (Point p : game.getBoard().getAccessiblePositions(game.getPanda().getPosition())) {
-			if (game.getBoard().get(p).getBambooSize() > 0) {
+		for (Point point : game.getBoard().getAccessiblePositions(game.getPanda().getPosition())) {
+			if (game.getBoard().get(point).getBambooSize() > 0) {
 				return true;
 			}
 		}
@@ -308,8 +305,8 @@ public class Player {
 	 */
 	private boolean needToEatBamboo() {
 
-		for (Color c : Color.values()) {
-			if (this.getStomach().get(c) < 3) {
+		for (Color color : Color.values()) {
+			if (this.getStomach().get(color) < 3) {
 				return true;
 			}
 		}
@@ -481,17 +478,17 @@ public class Player {
 		int minValue = this.getStomach().get(Color.PINK);
 		Color minColor = Color.PINK;
 
-		for (Color c : Color.values()) {
-			if (this.getStomach().get(c) < minValue) {
-				minValue = this.getStomach().get(c);
-				minColor = c;
+		for (Color color : Color.values()) {
+			if (this.getStomach().get(color) < minValue) {
+				minValue = this.getStomach().get(color);
+				minColor = color;
 			}
 		}
 
 		// Looks for the first tile of the needed color
-		for (Point p : available) {
-			if (game.getBoard().get(p).getColor() == minColor && game.getBoard().get(p).getBambooSize() > 0) {
-				return p;
+		for (Point point : available) {
+			if (game.getBoard().get(point).getColor() == minColor && game.getBoard().get(point).getBambooSize() > 0) {
+				return point;
 			}
 		}
 

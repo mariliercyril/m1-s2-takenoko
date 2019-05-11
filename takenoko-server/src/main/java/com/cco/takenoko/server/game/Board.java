@@ -1,10 +1,12 @@
 package com.cco.takenoko.server.game;
 
-import java.awt.*;
+import java.awt.Point;
+
 import java.util.List;
 import java.util.Set;
 
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.tool.UnitVector;
 
 public interface Board {

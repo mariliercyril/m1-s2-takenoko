@@ -1,11 +1,12 @@
 package com.cco.takenoko.server.game;
 
+import java.awt.Point;
+
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Component;
 
 import com.cco.takenoko.server.TakenokoServer;
-
-import java.awt.*;
 
 @Component
 @Scope("prototype")

@@ -1,7 +1,7 @@
 package com.cco.takenoko.server.cucumber;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.cco.takenoko.server.game.objective.PandaObjective;
+
 import com.cco.takenoko.server.game.tiles.Color;
+
 import com.cco.takenoko.server.player.Player;
 
 import cucumber.api.java.en.Given;

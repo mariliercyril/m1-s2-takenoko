@@ -2,28 +2,43 @@ package com.cco.takenoko.server.game;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.junit.platform.runner.JUnitPlatform;
+
 import org.junit.runner.RunWith;
+
 import org.mockito.Mock;
+
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.cco.takenoko.server.game.Board;
 import com.cco.takenoko.server.game.Game;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.IrrigationState;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.tool.UnitVector;
 
-import java.awt.*;
+import java.awt.Point;
+
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

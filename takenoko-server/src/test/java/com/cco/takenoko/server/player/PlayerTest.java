@@ -29,8 +29,6 @@ import com.cco.takenoko.server.game.tiles.Tile;
 
 import com.cco.takenoko.server.tool.UnitVector;
 
-import javax.annotation.Resource;
-
 import java.awt.Point;
 
 import java.util.List;
@@ -41,6 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import static org.mockito.Mockito.when;
 
 @RunWith(JUnitPlatform.class)
