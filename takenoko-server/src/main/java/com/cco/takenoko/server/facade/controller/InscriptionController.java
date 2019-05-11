@@ -22,7 +22,6 @@ import com.cco.takenoko.server.facade.model.Client;
 
 import com.cco.takenoko.server.game.Game;
 
-import com.cco.takenoko.server.player.BamBot;
 import com.cco.takenoko.server.player.Player;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -54,7 +53,7 @@ public class InscriptionController {
 
 		LOGGER.info(String.format(SERVER_RESPONSE_FORMAT, clientId));
 
-		Player player = new BamBot(clientId);
+		Player player = new Player(clientId);
 
 		String playerJson = "";
 		try {
@@ -66,7 +65,7 @@ public class InscriptionController {
 
 		// When all the clients are inscribed, the server launch games...
 		// TODO: Currently, the clients play by proxy...
-		//       (A player bot is assigned to each of them.)
+		//       (A player is assigned to each of them.)
 		if (Client.getCounter() == TakenokoServer.getClientsNumber()) {
 			(new ServerFacade()).launchGames(gameObjectFactory);
 		}

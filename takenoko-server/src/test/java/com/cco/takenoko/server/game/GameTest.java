@@ -20,7 +20,7 @@ import com.cco.takenoko.server.TakenokoServer;
 import com.cco.takenoko.server.game.Game;
 
 import com.cco.takenoko.server.game.tiles.Tile;
-import com.cco.takenoko.server.player.BamBot;
+
 import com.cco.takenoko.server.player.Player;
 
 import com.cco.takenoko.server.tool.ForbiddenActionException;
@@ -47,7 +47,7 @@ class GameTest {
 	void setUp(@Autowired Game game) {
 
 		for (int i = 0; i < 4; i++) {
-			players.add(new BamBot(i + 1));
+			players.add(new Player(i + 1));
 		}
 		TakenokoServer.setVerbose(false);
 		this.game = game;
