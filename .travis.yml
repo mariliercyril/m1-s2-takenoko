@@ -1,5 +1,7 @@
 language: java
-script: mvn clean package
+script: 
+      - mvn clean package
+      - mvn exec:java -Dexec.args=4
 notifications:
   email:
     recipients:
