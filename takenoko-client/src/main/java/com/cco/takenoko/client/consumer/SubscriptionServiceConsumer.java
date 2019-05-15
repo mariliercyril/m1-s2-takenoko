@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import com.cco.takenoko.client.model.Client;
 
 /**
- * The {@code SubscriptionCommandLineRunner} allows a client to subscribe to the game.
+ * The {@code SubscriptionServiceConsumer} allows a client to subscribe to the game.
  * 
  * @author cmarilier
  */

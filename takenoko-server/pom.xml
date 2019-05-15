@@ -11,4 +11,17 @@
   <name>takenoko-server</name>
 
   <packaging>jar</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <skip>false</skip>
+          <mainClass>com.cco.takenoko.server.TakenokoServer</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -9,6 +9,9 @@ import org.springframework.beans.factory.ObjectFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +50,7 @@ public class InscriptionController {
 	private ObjectFactory<Game> gameObjectFactory;
 
 	@PostMapping("/clients")
-	public void inscribe(@RequestBody Client client) {
+	public ResponseEntity<String> inscribe(@RequestBody Client client) {
 
 		int clientId = client.getId();
 
@@ -69,6 +72,8 @@ public class InscriptionController {
 		if (Client.getCounter() == TakenokoServer.getClientsNumber()) {
 			(new ServerFacade()).launchGames(gameObjectFactory);
 		}
+
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 
 }

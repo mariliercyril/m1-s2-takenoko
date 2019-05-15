@@ -1,11 +1,10 @@
 language: java
-script: 
-      - mvn clean package
-      - mvn exec:java -Dexec.args=4
+script:
+  - build_project.sh
+  - mvn exec:java -Dexec.args=4
 notifications:
   email:
     recipients:
-      - chihabeddine.aourinmouche@etu.univ-cotedazur.fr
       - oualid.benazzouz@etu.univ-cotedazur.fr
       - cyril.marilier@etu.univ-cotedazur.fr
     on_success: always # default: change
