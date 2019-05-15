@@ -1,7 +1,5 @@
-language: java
-script:
-  - bash build_project.sh
-  - mvn exec:java -Dexec.args=4
+language: bash
+script: bash build_project.sh
 notifications:
   email:
     recipients:
