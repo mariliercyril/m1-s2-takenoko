@@ -8,7 +8,7 @@ In order to do continuous integration, we first increase the number of tests, in
 - Cucumber tests,
 - ...
 
-We then improve our development practices: by applying a method of TDD (Test-Driven Development), or BDD (Behavior-Driven Development), on the one hand, and using Travis CI, on the other hand, in particular for continuous integration.
+We then improve our development practices: by applying a method of BDD (Behavior-Driven Development) by TDD (Test-Driven Development), on the one hand, and using Travis CI, on the other hand, in particular for continuous integration.
 
 ## 2. Client-server
 In order to develop a "client-server" version, we start doing a study of architecture on the division in RESTful services between player(s) and game execution engine.
@@ -23,6 +23,5 @@ In order to develop a "client-server" version, we start doing a study of archite
 
 ## Authors
 The **2CO** team:
-- Chihabeddine **AOURINMOUCHE**
 - Cyril **MARILIER**
 - Oualid **BENAZZOUZ**
