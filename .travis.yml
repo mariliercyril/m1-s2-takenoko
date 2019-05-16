@@ -1,11 +1,5 @@
-language: java
-script:
-  # Launches the server...
-  - cd takenoko-server
-  - mvn exec:java -Dexec.args=4 &
-  # Builds the project
-  - cd ..
-  - mvn clean package
+language: generic
+script: bash build_project.sh
 notifications:
   email:
     recipients:
