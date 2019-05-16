@@ -1,4 +1,4 @@
-language: generic
+language: java
 script: bash build_project.sh
 notifications:
   email:
