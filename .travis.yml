@@ -1,5 +1,16 @@
+sudo: required
+
 language: java
-script: bash build_project.sh
+
+services:
+  - docker
+
+before_script: bash build_takenoko.sh server
+script:
+  - docker pull projets2192co/takenoko-server
+  - docker run -p 8080:8080 -t projets2192co/takenoko-server
+after_script: bash build_takenoko.sh client
+
 notifications:
   email:
     recipients:
@@ -7,6 +18,8 @@ notifications:
       - cyril.marilier@etu.univ-cotedazur.fr
     on_success: always # default: change
     on_failure: always
+
 branches:
   except:
     - preparatory-work
+

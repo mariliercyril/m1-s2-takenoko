@@ -6,5 +6,6 @@ Feature: Is a client inscribed?
 
     Examples: 
       | id |
-      | 7  |
-      | 11 |
+      |  1 |
+      |  2 |
+
