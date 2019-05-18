@@ -8,4 +8,3 @@ Feature: Is a client inscribed?
       | id |
       |  1 |
       |  2 |
-
