@@ -10,7 +10,7 @@ before_script:
   - bash docker_login.sh
 script:
   - docker pull projets2192co/takenoko-server
-  - docker run -p 8080:8080 -t projets2192co/takenoko-server &
+  - docker run -d -p 8080:8080 -t projets2192co/takenoko-server
 after_script: bash build_takenoko.sh client
 
 notifications:
