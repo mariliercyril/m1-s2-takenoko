@@ -21,5 +21,3 @@ image que l'on pousse alors vers la plate-forme :
 après s'être assuré qu'elle existait :
 
 	$ docker images
-
-

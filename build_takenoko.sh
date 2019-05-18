@@ -6,4 +6,3 @@ cd takenoko-$1
 mvn clean package
 
 cd ..
-
