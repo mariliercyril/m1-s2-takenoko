@@ -7,7 +7,7 @@ puis, afin d'y avoir une première image, on commence par s'authentifier :
 puis l'on construit la première image :
 
 	$ ./mvnw install dockerfile:build
-(ou "**docker build -t projets2192co/takenoko:<tag>**", la valeur du "tag" pouvant être pour le serveur, par exemple, "server")
+(ou "**docker build -t projets2192co/takenoko:server**" pour le serveur, par exemple)
 
 après s'être assuré que son contenu "fonctionne" :
 
@@ -17,7 +17,7 @@ après s'être assuré que son contenu "fonctionne" :
 image que l'on pousse alors vers la plate-forme de Docker :
 
 	$ ./mvnw dockerfile:push
-(ou "**docker push projets2192co/takenoko:<tag>**")
+(ou "**docker push projets2192co/takenoko:server**" pour le serveur)
 
 Enfin, on peut s'assurer qu'elle fonctionnne (l'image du serveur, par exemple) :
 
