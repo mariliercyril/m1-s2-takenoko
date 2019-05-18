@@ -48,7 +48,8 @@
         <artifactId>dockerfile-maven-plugin</artifactId>
         <version>1.4.9</version>
         <configuration>
-          <repository>${docker.image.prefix}/takenoko-server</repository>
+          <repository>${docker.image.prefix}/takenoko</repository>
+          <tag>server</tag>
         </configuration>
       </plugin>
 
