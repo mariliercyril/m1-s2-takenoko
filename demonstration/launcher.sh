@@ -5,12 +5,13 @@
 # it builds client (with integration tests) on this terminal...
 
 
-sudo chmod 755 ../takenoko-server/mvnw ../takenoko-client/mvnw;
-
-
 gnome-terminal -- ./docker_run_server.sh
+
 
 sleep 10;
 
+
 cd ../takenoko-client;
+
+sudo chmod 755 mvnw;
 ./mvnw clean package
