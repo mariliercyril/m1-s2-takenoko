@@ -1,4 +1,4 @@
-package com.cco.takenoko.server.facade.controller;
+package com.cco.takenoko.server.facade.service;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.cco.takenoko.server.facade.controller;
+package com.cco.takenoko.server.facade.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
