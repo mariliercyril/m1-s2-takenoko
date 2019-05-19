@@ -12,13 +12,9 @@
   <modules>
     <module>takenoko-client</module>
     <module>takenoko-server</module>
-    <!-- <module>takenoko-launcher</module> -->
   </modules>
 
   <properties>
-    <!-- For solving the problem of non-integration of the server module into the client package -->
-	<!-- <spring-boot.repackage.skip>true</spring-boot.repackage.skip> -->
-
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <maven.compiler.source>1.8</maven.compiler.source>
