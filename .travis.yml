@@ -1,14 +1,15 @@
 sudo: required
 
 language: java
+env: DOCKER_USERNAME=projets2192co
 
 services:
   - docker
 
 before_script:
-  - bash docker_login.sh projets2192co $DOCKER_PASSWORD
-  - docker pull projets2192co/takenoko:server
-  - docker run -d -p 8080:8080 -t projets2192co/takenoko:server
+  - bash docker_login.sh $DOCKER_USERNAME $DOCKER_PASSWORD
+  - docker pull $DOCKER_USERNAME/takenoko:server
+  - docker run -d -p 8080:8080 -t $DOCKER_USERNAME/takenoko:server
 script:
   - cd takenoko-client
   - mvn clean package
