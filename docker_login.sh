@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# This script allows Travis CI to log in our Docker repository.
+# This script allows to log in Docker.
 
-echo $DOCKER_PASSWORD | docker login --username projets2192co --password-stdin
+echo $2 | docker login --username $1 --password-stdin
