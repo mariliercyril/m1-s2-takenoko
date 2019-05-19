@@ -7,8 +7,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 /**
- * The {@code SubscriptionServiceConsumerTest} class allows JUnit to run the Cucumber tests
- * of subscription/inscription service.
+ * The {@code ServiceConsumerTest} class allows JUnit to run the Cucumber tests of a service.
  * 
  * @author cmarilier
  */
