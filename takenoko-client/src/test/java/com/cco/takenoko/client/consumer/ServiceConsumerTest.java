@@ -14,4 +14,4 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", plugin = "pretty")
-public class SubscriptionServiceConsumerTest {}
+public class ServiceConsumerTest {}
