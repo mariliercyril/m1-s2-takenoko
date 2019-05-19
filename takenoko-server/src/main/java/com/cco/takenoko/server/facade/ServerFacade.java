@@ -93,7 +93,7 @@ public class ServerFacade {
 			int currentPlayer = sortedWinners.get(i).getKey();
 			float currentPlayerVictories = (float)sortedWinners.get(i).getValue()*100 / Constants.NUMBER_OF_GAMES_FOR_STATS;
 			float currentPlayerAverageScore = (float)scores[currentPlayer - 1] / Constants.NUMBER_OF_GAMES_FOR_STATS;
-			TakenokoServer.print(String.format("| #%-7d| %5.1f %% | %10.2f |", currentPlayer, currentPlayerVictories, currentPlayerAverageScore));
+			TakenokoServer.print(String.format("| #%-6d|   %5.1f %% |    %10.2f |", currentPlayer, currentPlayerVictories, currentPlayerAverageScore));
 		}
 		TakenokoServer.print(String.format(" -- There has been %d void games where all players' scores were 0 (roughly %3.1f percents)", voidedGames, (voidedGames * 100 / Constants.NUMBER_OF_GAMES_FOR_STATS)));
 

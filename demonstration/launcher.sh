@@ -8,7 +8,7 @@
 gnome-terminal -- ./docker_run_server.sh
 
 
-sleep 10;
+sleep 15;
 
 
 cd ../takenoko-client;
