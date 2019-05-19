@@ -6,12 +6,12 @@ services:
   - docker
 
 before_script:
-  - ./takenoko-server/mvnw clean package
   - bash docker_login.sh
-script:
   - docker pull projets2192co/takenoko:server
   - docker run -d -p 8080:8080 -t projets2192co/takenoko:server
-after_script: ./takenoko-client/mvnw clean package
+script:
+  - cd takenoko-client
+  - mvn clean package
 
 notifications:
   email:
