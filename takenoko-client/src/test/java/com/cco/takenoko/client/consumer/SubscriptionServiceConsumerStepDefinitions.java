@@ -7,7 +7,9 @@ import cucumber.api.java.en.When;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import static org.hamcrest.Matchers.equalTo;
+// Method "is(T value)" (is a shortcut to "is(equalTo(T value))")...
+// (Crossed out because the method "is(java.lang.Class<T> type)" is deprecated.)
+import static org.hamcrest.Matchers.is;
 
 /**
  * The {@code SubscriptionServiceConsumerStepDefinitions} class defines the Gherkin steps (in the scenarios
@@ -27,7 +29,7 @@ public class SubscriptionServiceConsumerStepDefinitions extends IntegrationTest 
 	public void the_client_returns_it_status_code_of(Integer statusCode) throws Throwable {
 
 		HttpStatus currentStatusCode = responseEntity.getStatusCode();
-		assertThat("Status code is incorrect: " + responseEntity.getBody(), currentStatusCode.value(), equalTo(statusCode));
+		assertThat("Status code is incorrect: " + responseEntity.getBody(), currentStatusCode.value(), is(statusCode));
 	}
 
 }
