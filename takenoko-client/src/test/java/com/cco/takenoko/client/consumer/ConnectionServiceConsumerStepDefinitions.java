@@ -29,8 +29,8 @@ public class ConnectionServiceConsumerStepDefinitions extends IntegrationTest {
 	@Then("the client receives a status code of {int}")
 	public void the_client_receives_a_status_code_of(Integer statusCode) throws Throwable {
 
-		HttpStatus currentStatusCode = responseEntityConnection.getStatusCode();
-		assertThat("Status code is incorrect: " + responseEntityConnection.getBody(), currentStatusCode.value(), equalTo(statusCode));
+		HttpStatus currentStatusCode = responseEntity.getStatusCode();
+		assertThat("Status code is incorrect: " + responseEntity.getBody(), currentStatusCode.value(), equalTo(statusCode));
 		
 	}
 	

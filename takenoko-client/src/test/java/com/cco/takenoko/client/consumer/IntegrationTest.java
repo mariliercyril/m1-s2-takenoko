@@ -23,9 +23,7 @@ import com.cco.takenoko.client.model.Client;
 @SpringBootTest
 public class IntegrationTest {
 
-	protected ResponseEntity<Client> responseEntity = null;
-	
-	protected ResponseEntity<String> responseEntityConnection = null;
+	protected ResponseEntity<?> responseEntity = null;
 
 	protected RestTemplate restTemplate = null;
 
@@ -51,7 +49,7 @@ public class IntegrationTest {
 			restTemplate = new RestTemplate();
 		}
 		
-		responseEntityConnection = restTemplate.getForEntity(AbstractServiceConsumer.SERVER_URL + "/{id}", String.class, id);
+		responseEntity = restTemplate.getForEntity(AbstractServiceConsumer.SERVER_URL + "/{id}", String.class, id);
 		
 		
 	}
