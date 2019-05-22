@@ -1,4 +1,4 @@
-package com.cco.takenoko.server.facade.controller;
+package com.cco.takenoko.server.facade.service;
 
 import java.io.IOException;
 
@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +25,6 @@ import com.cco.takenoko.server.facade.model.Client;
 
 import com.cco.takenoko.server.game.Game;
 
-import com.cco.takenoko.server.player.BamBot;
 import com.cco.takenoko.server.player.Player;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,13 +50,13 @@ public class InscriptionController {
 	private ObjectFactory<Game> gameObjectFactory;
 
 	@PostMapping("/clients")
-	public void inscribe(@RequestBody Client client) {
+	public ResponseEntity<String> inscribe(@RequestBody Client client) {
 
 		int clientId = client.getId();
 
 		LOGGER.info(String.format(SERVER_RESPONSE_FORMAT, clientId));
 
-		Player player = new BamBot(clientId);
+		Player player = new Player(clientId);
 
 		String playerJson = "";
 		try {
@@ -66,10 +68,12 @@ public class InscriptionController {
 
 		// When all the clients are inscribed, the server launch games...
 		// TODO: Currently, the clients play by proxy...
-		//       (A player bot is assigned to each of them.)
-		if (Client.getCounter() == TakenokoServer.getClientsNumber()) {
+		//       (A player is assigned to each of them.)
+		if ((Player.getPlayers()).size() == TakenokoServer.getClientsNumber()) {
 			(new ServerFacade()).launchGames(gameObjectFactory);
 		}
+
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 
 }

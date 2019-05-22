@@ -1,6 +1,7 @@
 package com.cco.takenoko.server.game.objective;
 
 import java.awt.Point;
+
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +18,12 @@ import org.junit.jupiter.api.Test;
 
 import com.cco.takenoko.server.game.Board;
 import com.cco.takenoko.server.game.HashBoard;
+
 import com.cco.takenoko.server.game.objective.PandaObjective;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.player.Player;
 
 import static org.mockito.Mockito.mock;

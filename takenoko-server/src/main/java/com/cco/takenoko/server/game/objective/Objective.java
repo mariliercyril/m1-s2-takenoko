@@ -3,8 +3,10 @@ package com.cco.takenoko.server.game.objective;
 import java.util.Map;
 
 import com.cco.takenoko.server.game.Board;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.player.Player;
 
 /**

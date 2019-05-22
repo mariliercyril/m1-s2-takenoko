@@ -3,6 +3,7 @@ package com.cco.takenoko.server.game.objective;
 import java.util.List;
 
 import com.cco.takenoko.server.game.Board;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
 

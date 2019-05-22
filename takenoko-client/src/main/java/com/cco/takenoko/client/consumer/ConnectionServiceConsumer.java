@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * The {@code ConnectionCommandLineRunner} allows a client to initialize a connection with the server.
+ * The {@code ConnectionServiceConsumer} allows a client to initialize a connection with the server.
  * 
  * @author cmarilier
  */

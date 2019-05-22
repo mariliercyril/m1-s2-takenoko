@@ -28,7 +28,14 @@ public class TakenokoServer {
 
 	public static void main(String[] args) {
 
-		clientsNumber = Integer.valueOf(args[0]);
+		clientsNumber = 2;
+
+		if (args.length > 0) {
+			clientsNumber = Integer.valueOf(args[0]);
+			if (clientsNumber < 2) {
+				clientsNumber = 2;
+			}
+		}
 
 		SpringApplication.run(TakenokoServer.class, args);
 	}

@@ -88,10 +88,12 @@ public class ServerFacade {
 		TakenokoServer.setVerbose(true);
 		List<Map.Entry<Integer, Integer>> sortedWinners = playerVictories.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toList()); // Sorting the players according to their score
 		TakenokoServer.print(String.format(" -- Launched %6.0f games!", Constants.NUMBER_OF_GAMES_FOR_STATS));
-		TakenokoServer.print(String.format("| %-8s| %-14s| %-12s| %-9s|", "Player ", "Type","Victories", "Avg. Score\t"));
+		TakenokoServer.print(String.format("| %-7s| %-10s| %-14s|", "Player", "Victories", "Average Score"));
 		for (int i = sortedWinners.size() - 1; i + 1 > 0; i--) {
 			int currentPlayer = sortedWinners.get(i).getKey();
-			TakenokoServer.print(String.format("| #%-7d|  %-13s|     %5.1f %% |        %5.2f\t|", currentPlayer, playersTypes[currentPlayer - 1], (float)sortedWinners.get(i).getValue()*100 / (Constants.NUMBER_OF_GAMES_FOR_STATS), (float)scores[currentPlayer - 1]/Constants.NUMBER_OF_GAMES_FOR_STATS));
+			float currentPlayerVictories = (float)sortedWinners.get(i).getValue()*100 / Constants.NUMBER_OF_GAMES_FOR_STATS;
+			float currentPlayerAverageScore = (float)scores[currentPlayer - 1] / Constants.NUMBER_OF_GAMES_FOR_STATS;
+			TakenokoServer.print(String.format("| #%-6d|   %5.1f %% |    %10.2f |", currentPlayer, currentPlayerVictories, currentPlayerAverageScore));
 		}
 		TakenokoServer.print(String.format(" -- There has been %d void games where all players' scores were 0 (roughly %3.1f percents)", voidedGames, (voidedGames * 100 / Constants.NUMBER_OF_GAMES_FOR_STATS)));
 

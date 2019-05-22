@@ -1,13 +1,27 @@
+sudo: required
+
 language: java
-script: mvn clean package
+env: DOCKER_USERNAME=projets2192co
+
+services:
+  - docker
+
+before_script:
+  - bash docker_login.sh $DOCKER_USERNAME $DOCKER_PASSWORD
+  - docker pull $DOCKER_USERNAME/takenoko:server
+  - docker run -d -p 8080:8080 -t $DOCKER_USERNAME/takenoko:server
+script:
+  - cd takenoko-client
+  - mvn clean package
+
 notifications:
   email:
     recipients:
-      - chihabeddine.aourinmouche@etu.univ-cotedazur.fr
       - oualid.benazzouz@etu.univ-cotedazur.fr
       - cyril.marilier@etu.univ-cotedazur.fr
     on_success: always # default: change
     on_failure: always
+
 branches:
   except:
     - preparatory-work

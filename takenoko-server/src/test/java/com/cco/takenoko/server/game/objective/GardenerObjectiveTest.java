@@ -1,24 +1,33 @@
 package com.cco.takenoko.server.game.objective;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.awt.Point;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.junit.platform.runner.JUnitPlatform;
+
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.cco.takenoko.server.game.Board;
 import com.cco.takenoko.server.game.Game;
+
 import com.cco.takenoko.server.game.objective.GardenerObjective;
 import com.cco.takenoko.server.game.objective.Objective;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
-
-import java.awt.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 @SpringBootTest

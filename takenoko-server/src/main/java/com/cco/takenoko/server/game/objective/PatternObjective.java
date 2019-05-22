@@ -1,14 +1,17 @@
 package com.cco.takenoko.server.game.objective;
 
 import java.awt.Point;
-import java.util.*;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 import com.cco.takenoko.server.game.Board;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.tool.UnitVector;
 
 public class PatternObjective extends Objective {

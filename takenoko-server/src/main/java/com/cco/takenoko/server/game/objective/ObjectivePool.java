@@ -1,12 +1,17 @@
 package com.cco.takenoko.server.game.objective;
 
 import org.springframework.context.annotation.Scope;
+
 import org.springframework.stereotype.Service;
 
-import com.cco.takenoko.server.game.*;
+import com.cco.takenoko.server.game.Board;
+import com.cco.takenoko.server.game.Game;
+
 import com.cco.takenoko.server.game.tiles.Color;
 import com.cco.takenoko.server.game.tiles.Tile;
+
 import com.cco.takenoko.server.player.Player;
+
 import com.cco.takenoko.server.tool.UnitVector;
 
 import java.util.*;
@@ -112,8 +117,8 @@ public class ObjectivePool {
         updatePandaObjectives(player);
     }
 
-    public void notifyBambooEaten(Board b, Player p) {
-        updatePandaObjectives(p);
+    public void notifyBambooEaten(Board b, Player player) {
+        updatePandaObjectives(player);
         updateGardenerObjectives(b);
     }
 
@@ -130,14 +135,14 @@ public class ObjectivePool {
         }
     }
 
-    private void updatePandaObjectives(Player p) {
+    private void updatePandaObjectives(Player player) {
 
-        List<Objective> objectives = p.getObjectives();    // First we get the list of the player's objectives
+        List<Objective> objectives = player.getObjectives();    // First we get the list of the player's objectives
 
         for (Objective objective : objectives) {            // For each of these objectives,
             if (this.bambooObjectives.contains(objective)) { // we check if it is a bamboo objective
                 // (thanks to its membership in the bamboo objective list)
-                objective.checkIfCompleted(p); // If it is, we check for its completion
+                objective.checkIfCompleted(player); // If it is, we check for its completion
             }
         }
     }
