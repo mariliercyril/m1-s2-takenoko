@@ -27,7 +27,7 @@ import com.cco.takenoko.client.consumer.SubscriptionServiceConsumer;
 public class TakenokoClient {
 
 	// The client ID
-	private static int id;
+	private static int id = 0;
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -42,7 +42,9 @@ public class TakenokoClient {
 
 		SpringApplication client = new SpringApplication(TakenokoClient.class);
 
-		id = Integer.parseInt(args[0]);
+		if (args.length > 0) {
+			id = Integer.parseInt(args[0]);
+		}
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("server.port", 9000 + id);

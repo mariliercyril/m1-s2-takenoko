@@ -69,7 +69,7 @@ public class InscriptionController {
 		// When all the clients are inscribed, the server launch games...
 		// TODO: Currently, the clients play by proxy...
 		//       (A player is assigned to each of them.)
-		if (Client.getCounter() == TakenokoServer.getClientsNumber()) {
+		if ((Player.getPlayers()).size() == TakenokoServer.getClientsNumber()) {
 			(new ServerFacade()).launchGames(gameObjectFactory);
 		}
 
