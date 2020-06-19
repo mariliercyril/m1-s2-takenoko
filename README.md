@@ -25,3 +25,4 @@ In order to develop a "client-server" version, we start doing a study of archite
 The **2CO** team:
 - Cyril **MARILIER**
 - Oualid **BENAZZOUZ**
+![](https://fr.wikipedia.org/wiki/Spring_(framework)#/media/Fichier:Spring_Framework_Logo_2018.svg)
